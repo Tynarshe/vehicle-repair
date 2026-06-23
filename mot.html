@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MOT Testing Station Daventry | MJB Services</title>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#001e2e",
+                        "background": "#fcf9f8",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed-variant": "#92001c",
+                        "on-primary-container": "#fffbff",
+                        "surface-tint": "#bb152c",
+                        "safety-orange": "#F77F00",
+                        "on-secondary-fixed-variant": "#30476a",
+                        "primary": "#b7102a",
+                        "on-tertiary-fixed-variant": "#064c6b",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#98cdf2",
+                        "error": "#ba1a1a",
+                        "outline": "#8f6f6e",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1c1b1b",
+                        "primary-container": "#db313f",
+                        "secondary-fixed": "#d5e3ff",
+                        "surface-container": "#f0eded",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-dim": "#dcd9d9",
+                        "outline-variant": "#e4bebc",
+                        "tertiary-container": "#447a9c",
+                        "on-secondary-container": "#445a7f",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#b0c7f1",
+                        "secondary-container": "#bbd3fd",
+                        "primary-fixed": "#ffdad8",
+                        "on-tertiary-container": "#fcfcff",
+                        "on-primary-fixed": "#410007",
+                        "tertiary-fixed": "#c7e7ff",
+                        "secondary": "#485f84",
+                        "on-secondary-fixed": "#001b3c",
+                        "garage-charcoal": "#2B2D42",
+                        "on-surface": "#1c1b1b",
+                        "tertiary": "#286182",
+                        "inverse-surface": "#313030",
+                        "inverse-primary": "#ffb3b1",
+                        "surface-container-high": "#eae7e7",
+                        "surface-variant": "#e5e2e1",
+                        "trust-blue": "#0056B3",
+                        "success-green": "#2D6A4F",
+                        "on-surface-variant": "#5b403f",
+                        "machine-silver": "#E2E8F0",
+                        "surface-container-highest": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+
+        /* Motion System */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .hover-lift {
+                transform: none !important;
+            }
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Form Input Motion */
+        .form-input-focus {
+            transition: all 0.2s ease-in-out;
+        }
+        .form-input-focus:focus {
+            box-shadow: 0 0 0 4px rgba(183, 16, 42, 0.15);
+            border-color: #b7102a;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- Top Navigation Bar -->
+<header class="bg-surface dark:bg-garage-charcoal w-full sticky top-0 z-50 border-b border-outline-variant dark:border-garage-charcoal shadow-sm h-20 transition-all duration-300">
+<div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-full">
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg font-extrabold text-primary dark:text-primary-fixed transition-transform hover:scale-[1.02] active:scale-95" href="index.html">MJB Services</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface dark:text-surface-bright font-body-md hover:text-primary transition-colors duration-200 relative group" href="index.html">
+                Home
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1" href="mot.html">MOT</a>
+<a class="text-on-surface dark:text-surface-bright font-body-md hover:text-primary transition-colors duration-200 relative group" href="index.html#repairs">
+                Repairs
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="text-on-surface dark:text-surface-bright font-body-md hover:text-primary transition-colors duration-200 relative group" href="batteries.html">
+                Batteries
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="text-on-surface dark:text-surface-bright font-body-md hover:text-primary transition-colors duration-200 relative group" href="index.html#contact">
+                Contact
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+</nav>
+<div class="flex items-center gap-6">
+<a class="text-primary font-label-bold hidden lg:block hover:underline" href="tel:01327301619">01327 301619</a>
+<button class="bg-primary hover:bg-primary-container text-white px-6 py-3 rounded font-label-bold transition-all hover:shadow-lg active:scale-95" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative bg-garage-charcoal text-white py-24 overflow-hidden">
+<div class="absolute inset-0 opacity-20">
+<div class="absolute inset-0 bg-gradient-to-r from-garage-charcoal to-transparent z-10"></div>
+<img class="w-full h-full object-cover animate-[pulse_8s_infinite]" data-alt="A professional automotive service bay" src="assets/mot-hero.png"/>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-20">
+<div class="max-w-2xl reveal active">
+<span class="inline-block bg-primary text-white text-caption font-label-bold px-3 py-1 mb-6 rounded-sm uppercase tracking-widest animate-bounce">Official DVSA Center</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">DVSA Approved MOT Testing Station in Daventry</h1>
+<p class="font-body-lg text-machine-silver mb-8">Specialist Class 4 and Class 7 MOT testing on Royal Oak Way North. Reliable, efficient, and professional vehicle inspections to keep you safe on the road.</p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-primary text-white px-8 py-4 rounded font-label-bold hover:bg-primary-container transition-all hover:shadow-lg hover:-translate-y-1" href="#booking">Book MOT Today</a>
+<a class="border-2 border-machine-silver text-white px-8 py-4 rounded font-label-bold hover:bg-white/10 transition-all flex items-center gap-2" href="tel:01327301619">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+                        01327 301619
+                    </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Service Overview -->
+<section class="py-24 max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Visual Card -->
+<div class="md:col-span-8 rounded-xl overflow-hidden relative min-h-[400px] shadow-lg group reveal">
+<img alt="MJB Services Office" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/mot-facility.png"/>
+<div class="absolute inset-0 bg-gradient-to-t from-garage-charcoal/80 to-transparent"></div>
+<div class="absolute bottom-0 p-8 text-white transition-transform duration-500 group-hover:-translate-y-2">
+<h2 class="font-headline-lg mb-2">Our Testing Facility</h2>
+<p class="font-body-md text-machine-silver max-w-md">Located on Royal Oak Industrial Estate, our modern station is equipped for comprehensive inspections of all light vehicles and commercial vans.</p>
+</div>
+</div>
+<!-- Class 4 Detail -->
+<div class="md:col-span-4 bg-white p-8 rounded-xl border border-machine-silver flex flex-col justify-between shadow-sm hover-lift reveal">
+<div>
+<div class="w-12 h-12 bg-primary/10 rounded flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="directions_car">directions_car</span>
+</div>
+<h3 class="font-headline-md mb-4">Class 4 MOT</h3>
+<p class="text-on-surface-variant font-body-md mb-6">Comprehensive testing for cars, taxis, and light vans up to 3,000kg. We ensure your passenger vehicle meets all safety and environmental standards.</p>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-caption font-label-bold text-success-green">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+                        DVSA COMPLIANT
+                    </li>
+<li class="flex items-center gap-2 text-caption font-label-bold text-success-green">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+                        SAME DAY RESULTS
+                    </li>
+</ul>
+</div>
+<!-- Class 7 Detail -->
+<div class="md:col-span-4 bg-garage-charcoal text-white p-8 rounded-xl flex flex-col justify-between shadow-lg hover-lift reveal">
+<div>
+<div class="w-12 h-12 bg-primary rounded flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-white text-[32px]" data-icon="local_shipping">local_shipping</span>
+</div>
+<h3 class="font-headline-md mb-4">Class 7 MOT</h3>
+<p class="text-machine-silver font-body-md mb-6">Specialized MOT inspections for commercial vehicles between 3,000kg and 3,500kg. Perfect for independent traders and local fleets.</p>
+</div>
+<button class="text-primary font-label-bold flex items-center gap-2 hover:translate-x-2 transition-transform duration-300" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+                    View requirements
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Location / Address Card -->
+<div class="md:col-span-8 bg-surface-container p-8 rounded-xl border border-outline-variant flex flex-col md:flex-row gap-8 items-center reveal">
+<div class="flex-1">
+<h3 class="font-headline-md mb-2">Visit Us in Daventry</h3>
+<p class="text-on-surface-variant font-body-md mb-4">Royal Oak Way North, Royal Oak Industrial Estate, Daventry, NN11 8PQ</p>
+<div class="flex gap-4">
+<a class="bg-white text-on-surface border border-outline px-6 py-2 rounded font-label-bold hover:bg-surface-container-high transition-all hover:shadow-sm" href="https://maps.google.com/?q=Royal+Oak+Way+North+Daventry" rel="noopener" target="_blank">Open in Maps</a>
+</div>
+</div>
+<div class="w-full md:w-64 h-32 md:h-full bg-surface-dim rounded-lg overflow-hidden border border-outline-variant group">
+<img class="w-full h-full object-cover grayscale opacity-50 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110" data-alt="Map visualization" src="assets/mot-map.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Booking & Contact Section -->
+<section class="bg-surface-container-lowest py-24 border-y border-outline-variant" id="booking">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="reveal">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg mb-6">Book Your MOT preferred date and time</h2>
+<p class="font-body-lg text-on-surface-variant mb-8">Ready to secure your slot? Our Daventry station is open Monday through Friday to serve your vehicle maintenance needs. Combined MOT and servicing available at competitive rates.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4 group cursor-default">
+<span class="material-symbols-outlined text-primary mt-1 transition-transform group-hover:scale-110" data-icon="call_log">call_log</span>
+<div>
+<h4 class="font-label-bold uppercase tracking-wider text-primary">Direct Line</h4>
+<p class="font-display-lg text-headline-lg text-garage-charcoal group-hover:text-primary transition-colors">(01327) 301619</p>
+</div>
+</div>
+<div class="flex items-start gap-4 group cursor-default">
+<span class="material-symbols-outlined text-trust-blue mt-1 transition-transform group-hover:rotate-12" data-icon="schedule">schedule</span>
+<div>
+<h4 class="font-label-bold uppercase tracking-wider text-trust-blue">Operating Hours</h4>
+<p class="font-body-md text-on-surface">Mon - Fri: 8:30 AM - 5:30 PM</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-machine-silver reveal transition-all hover:shadow-2xl">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-bold text-on-surface-variant mb-2">Registration Number</label>
+<input class="w-full border-2 border-outline-variant rounded-lg p-3 form-input-focus outline-none font-display-lg text-headline-md uppercase placeholder:opacity-30" placeholder="AB12 CDE" type="text"/>
+</div>
+<div>
+<label class="block font-label-bold text-on-surface-variant mb-2">MOT Class</label>
+<select class="w-full border-2 border-outline-variant rounded-lg p-3 form-input-focus outline-none">
+<option>Class 4 (Cars/Light Vans)</option>
+<option>Class 7 (Goods Vehicles)</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-bold text-on-surface-variant mb-2">Preferred Date</label>
+<input class="w-full border-2 border-outline-variant rounded-lg p-3 form-input-focus outline-none" type="date"/>
+</div>
+<div>
+<label class="block font-label-bold text-on-surface-variant mb-2">Contact Number</label>
+<input class="w-full border-2 border-outline-variant rounded-lg p-3 form-input-focus outline-none" placeholder="Your Phone" type="tel"/>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-lg font-headline-md hover:bg-primary-container transition-all active:scale-[0.98] shadow-md hover:shadow-lg" type="submit">
+                            Request MOT Booking
+                        </button>
+<p class="text-center text-caption text-on-surface-variant">We'll call you back within 1 hour during business hours.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Badges Section -->
+<section class="py-16 bg-white overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-wrap justify-center md:justify-between items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 reveal">
+<div class="flex items-center gap-3 transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-[48px] text-trust-blue" data-icon="verified">verified</span>
+<span class="font-headline-md text-garage-charcoal">DVSA APPROVED</span>
+</div>
+<div class="flex items-center gap-3 transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-[48px] text-primary" data-icon="security">security</span>
+<span class="font-headline-md text-garage-charcoal">RMI MEMBER</span>
+</div>
+<div class="flex items-center gap-3 transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-[48px] text-success-green" data-icon="task_alt">task_alt</span>
+<span class="font-headline-md text-garage-charcoal">QUALITY ASSURED</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Section -->
+<footer class="bg-garage-charcoal text-machine-silver mt-auto">
+<div class="max-w-container-max mx-auto px-margin-desktop py-16 grid grid-cols-1 md:grid-cols-4 gap-gutter reveal">
+<div class="md:col-span-2">
+<h2 class="font-display-lg-mobile text-display-lg-mobile font-extrabold text-white mb-6">MJB Services</h2>
+<p class="max-w-sm mb-6 text-body-md">Your trusted independent garage in Daventry for over 15 years. Specialized in MOT testing, vehicle repairs, and high-quality battery replacements.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:rotate-[360deg]" href="index.html#contact">
+<span class="material-symbols-outlined text-white" data-icon="share">share</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-bold text-white uppercase tracking-widest mb-6">Quick Links</h4>
+<nav class="flex flex-col gap-4">
+<a class="text-machine-silver hover:text-white hover:translate-x-1 transition-all duration-200" href="index.html">Home</a>
+<a class="text-machine-silver hover:text-white hover:translate-x-1 transition-all duration-200" href="mot.html">MOT Testing</a>
+<a class="text-machine-silver hover:text-white hover:translate-x-1 transition-all duration-200" href="index.html#repairs">Vehicle Repairs</a>
+<a class="text-machine-silver hover:text-white hover:translate-x-1 transition-all duration-200" href="batteries.html">Car Batteries</a>
+</nav>
+</div>
+<div>
+<h4 class="font-label-bold text-white uppercase tracking-widest mb-6">Contact Info</h4>
+<div class="flex flex-col gap-4 text-caption">
+<p class="flex items-center gap-2 group cursor-pointer">
+<span class="material-symbols-outlined text-[16px] text-primary transition-transform group-hover:scale-125" data-icon="location_on">location_on</span>
+                    Royal Oak Way North, Daventry, NN11 8PQ
+                </p>
+<p class="flex items-center gap-2 group cursor-pointer">
+<span class="material-symbols-outlined text-[16px] text-primary transition-transform group-hover:scale-125" data-icon="phone">phone</span>
+                    01327 301619
+                </p>
+<p class="flex items-center gap-2 group cursor-pointer">
+<span class="material-symbols-outlined text-[16px] text-primary transition-transform group-hover:scale-125" data-icon="mail">mail</span>
+                    enquiries@mjbservices.co.uk
+                </p>
+</div>
+</div>
+</div>
+<div class="border-t border-outline/20 py-8">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4 text-caption">
+<p>© 2024 MJB Services. All rights reserved.</p>
+<nav class="flex gap-6">
+<a class="hover:text-white transition-colors duration-200" href="index.html#contact">Privacy Policy</a>
+<a class="hover:text-white transition-colors duration-200" href="index.html#contact">Terms of Service</a>
+<a class="hover:text-white transition-colors duration-200" href="index.html#contact">Cookie Policy</a>
+<a class="hover:text-white transition-colors duration-200" href="index.html">Sitemap</a>
+</nav>
+</div>
+</div>
+</footer>
+<!-- Booking Bar (Mobile Only Anchor) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-garage-charcoal p-4 z-50 flex justify-between items-center border-t border-primary shadow-2xl transition-transform duration-300">
+<a class="text-white font-label-bold flex items-center gap-2 active:scale-95" href="tel:01327301619">
+<span class="material-symbols-outlined text-primary" data-icon="call">call</span>
+        Call Station
+    </a>
+<button class="bg-primary text-white px-6 py-2 rounded font-label-bold shadow-lg active:scale-95" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
+</div>
+<script>
+    // Reveal animation on scroll
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+    // Trigger on load
+    reveal();
+
+    // Form submission animation enhancement
+    document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        const originalText = btn.innerText;
+        btn.innerText = "Processing...";
+        btn.disabled = true;
+        btn.classList.add('opacity-80', 'cursor-not-allowed');
+        
+        setTimeout(() => {
+            btn.innerText = "Request Sent!";
+            btn.classList.replace('bg-primary', 'bg-success-green');
+            btn.classList.remove('opacity-80', 'cursor-not-allowed');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.replace('bg-success-green', 'bg-primary');
+                btn.disabled = false;
+                e.target.reset();
+            }, 3000);
+        }, 1200);
+    });
+
+    // Header interaction
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll <= 0) {
+            header.classList.remove('shadow-lg', 'bg-white/95', 'backdrop-blur-md');
+            header.classList.add('bg-surface');
+            return;
+        }
+
+        if (currentScroll > 50) {
+            header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-lg');
+            header.classList.remove('bg-surface');
+        }
+
+        // Hide/Show on scroll
+        if (currentScroll > lastScroll && currentScroll > 150) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        lastScroll = currentScroll;
+    });
+</script>
+</body></html>

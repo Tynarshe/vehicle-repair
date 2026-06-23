@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MJB Services | MOT &amp; Vehicle Repairs Daventry</title>
+<meta content="Professional MOT Testing (Class 4 &amp; 7) and expert vehicle repairs at Royal Oak Industrial Estate, Daventry. Competitive prices and quality service." name="description"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<!-- Design System Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                "colors": {
+                    "on-tertiary-fixed": "#001e2e",
+                    "background": "#fcf9f8",
+                    "surface": "#fcf9f8",
+                    "on-primary-fixed-variant": "#92001c",
+                    "on-primary-container": "#fffbff",
+                    "surface-tint": "#bb152c",
+                    "safety-orange": "#F77F00",
+                    "on-secondary-fixed-variant": "#30476a",
+                    "primary": "#b7102a",
+                    "on-tertiary-fixed-variant": "#064c6b",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#98cdf2",
+                    "error": "#ba1a1a",
+                    "outline": "#8f6f6e",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-background": "#1c1b1b",
+                    "primary-container": "#db313f",
+                    "secondary-fixed": "#d5e3ff",
+                    "surface-container": "#f0eded",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#fcf9f8",
+                    "inverse-on-surface": "#f3f0ef",
+                    "surface-dim": "#dcd9d9",
+                    "outline-variant": "#e4bebc",
+                    "tertiary-container": "#447a9c",
+                    "on-secondary-container": "#445a7f",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#ffb3b1",
+                    "surface-container-low": "#f6f3f2",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#b0c7f1",
+                    "secondary-container": "#bbd3fd",
+                    "primary-fixed": "#ffdad8",
+                    "on-tertiary-container": "#fcfcff",
+                    "on-primary-fixed": "#410007",
+                    "tertiary-fixed": "#c7e7ff",
+                    "secondary": "#485f84",
+                    "on-secondary-fixed": "#001b3c",
+                    "garage-charcoal": "#2B2D42",
+                    "on-surface": "#1c1b1b",
+                    "tertiary": "#286182",
+                    "inverse-surface": "#313030",
+                    "inverse-primary": "#ffb3b1",
+                    "surface-container-high": "#eae7e7",
+                    "surface-variant": "#e5e2e1",
+                    "trust-blue": "#0056B3",
+                    "success-green": "#2D6A4F",
+                    "on-surface-variant": "#5b403f",
+                    "machine-silver": "#E2E8F0",
+                    "surface-container-highest": "#e5e2e1"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+                },
+                "spacing": {
+                    "base": "8px",
+                    "margin-mobile": "20px",
+                    "container-max": "1280px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px"
+                },
+                "fontFamily": {
+                    "display-lg": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-bold": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "caption": ["Inter"]
+                },
+                "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}]
+                }
+              },
+            },
+          }
+        </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(43, 45, 66, 0.95) 0%, rgba(43, 45, 66, 0.8) 50%, rgba(43, 45, 66, 0.4) 100%);
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+        }
+        
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Precision Background Effect */
+        .precision-grid {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        .scanner-line {
+            height: 100%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(183, 16, 42, 0.5), transparent);
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: scan 10s linear infinite;
+        }
+        @keyframes gridMove {
+            from { background-position: 0 0; }
+            to { background-position: 50px 50px; }
+        }
+        @keyframes scan {
+            0% { left: -10%; opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { left: 110%; opacity: 0; }
+        }
+
+        /* Shimmer Effect for Buttons */
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -150%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%
+            );
+            transform: rotate(30deg);
+            transition: none;
+            animation: shimmer 4s infinite;
+        }
+        @keyframes shimmer {
+            0% { left: -150%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        /* Nav Underline Animation */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #b7102a;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link-active::after {
+            width: 100%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .precision-grid, .scanner-line, .btn-shimmer::after, .nav-link::after {
+                animation: none !important;
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-surface dark:bg-garage-charcoal border-b border-outline-variant dark:border-garage-charcoal shadow-sm">
+<div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-20">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-display-lg font-extrabold text-primary dark:text-primary-fixed">MJB Services</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="nav-link nav-link-active text-primary font-label-bold transition-colors duration-200" href="index.html">Home</a>
+<a class="nav-link text-on-surface dark:text-surface-bright font-body-md hover:text-primary transition-colors duration-200" href="mot.html">MOT</a>
+<a class="nav-link text-on-surface dark:text-surface-bright font-body-md hover:text-primary transition-colors duration-200" href="#repairs">Repairs</a>
+<a class="nav-link text-on-surface dark:text-surface-bright font-body-md hover:text-primary transition-colors duration-200" href="batteries.html">Batteries</a>
+<a class="nav-link text-on-surface dark:text-surface-bright font-body-md hover:text-primary transition-colors duration-200" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<a class="hidden lg:flex items-center gap-2 text-primary font-label-bold group" href="tel:01327301619">
+<span class="material-symbols-outlined text-primary">call</span>
+<span class="group-hover:underline">01327 301619</span>
+</a>
+<button class="btn-shimmer bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-bold hover:bg-primary-container transition-all active:opacity-80" onclick="window.location.href='mot.html#booking'">
+                Book Now
+            </button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center overflow-hidden bg-garage-charcoal">
+<div class="absolute inset-0 z-0">
+<img alt="MJB Services Garage Exterior" class="w-full h-full object-cover" src="assets/home-hero.png"/>
+<div class="absolute inset-0 hero-gradient"></div>
+<!-- Precision Effects -->
+<div class="absolute inset-0 precision-grid opacity-30"></div>
+<div class="scanner-line"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="max-w-2xl reveal active">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-primary font-label-bold text-sm uppercase tracking-widest">Official MOT Station</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-white mb-6">
+                    Professional <span class="text-primary">MOT &amp; Vehicle Repairs</span> in Daventry
+                </h1>
+<p class="font-body-lg text-body-lg text-machine-silver mb-10 opacity-90">
+                    Reliable servicing, maintenance, and diagnostics for cars and commercial vehicles. Situated on the Royal Oak Industrial Estate.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="btn-shimmer bg-primary text-white px-8 py-4 rounded-lg font-label-bold text-center hover:bg-primary-container transition-all flex items-center justify-center gap-2 shadow-xl shadow-primary/20" href="tel:01327301619">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+                        Book Your MOT Now
+                    </a>
+<a class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-lg font-label-bold text-center hover:bg-white/20 transition-all" href="#services">
+                        View All Services
+                    </a>
+</div>
+<div class="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8">
+<div>
+<p class="text-white font-display-lg text-4xl font-extrabold mb-1">Class 4</p>
+<p class="text-machine-silver text-sm font-label-bold uppercase tracking-wider">Car Testing</p>
+</div>
+<div>
+<p class="text-white font-display-lg text-4xl font-extrabold mb-1">Class 7</p>
+<p class="text-machine-silver text-sm font-label-bold uppercase tracking-wider">LCV Testing</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Cards (Bento Style) -->
+<section class="py-24 bg-surface" id="services">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-16 reveal">
+<h2 class="font-headline-lg text-headline-lg text-garage-charcoal mb-4">Expert Automotive Services</h2>
+<p class="font-body-md text-on-surface-variant max-w-xl mx-auto">Quality repairs carried out at competitive prices with prompt, efficient service for all vehicle types.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- MOT Testing -->
+<div class="reveal group bg-white rounded-xl overflow-hidden border border-machine-silver hover:border-primary transition-all duration-500 hover:shadow-2xl hover:scale-[1.03]" id="mot" style="transition-delay: 100ms;">
+<div class="h-56 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="MOT testing" src="assets/home-mot-testing.png"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded">DVSA APPROVED</div>
+</div>
+<div class="p-8">
+<div class="w-12 h-12 bg-primary/5 text-primary rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">MOT Testing (Class 4 &amp; 7)</h3>
+<p class="text-on-surface-variant font-body-md mb-6">
+                            Professional testing for cars and light commercial vehicles. Book your preferred date and time today.
+                        </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-bold group/link" href="tel:01327301619">
+                            Call to Book <span class="material-symbols-outlined transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Vehicle Repairs -->
+<div class="reveal group bg-white rounded-xl overflow-hidden border border-machine-silver hover:border-primary transition-all duration-500 hover:shadow-2xl hover:scale-[1.03]" id="repairs" style="transition-delay: 200ms;">
+<div class="h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Vehicle Repairs" src="assets/home-repairs.png"/>
+</div>
+<div class="p-8">
+<div class="w-12 h-12 bg-primary/5 text-primary rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">build</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Quality Repairs &amp; Servicing</h3>
+<p class="text-on-surface-variant font-body-md mb-6">
+                            Specializing in vehicle servicing for all cars and commercial vehicles. Combined MOT &amp; Service deals available.
+                        </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-bold group/link" href="#repairs">
+                            Repair Services <span class="material-symbols-outlined transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Batteries -->
+<div class="reveal group bg-white rounded-xl overflow-hidden border border-machine-silver hover:border-primary transition-all duration-500 hover:shadow-2xl hover:scale-[1.03]" id="batteries" style="transition-delay: 300ms;">
+<div class="h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Batteries" src="assets/home-batteries.png"/>
+</div>
+<div class="p-8">
+<div class="w-12 h-12 bg-primary/5 text-primary rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">battery_charging_full</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Car, Van &amp; Truck Batteries</h3>
+<p class="text-on-surface-variant font-body-md mb-6">
+                            We offer a full range of vehicle batteries for all sizes at the most competitive prices in Daventry.
+                        </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-bold group/link" href="batteries.html">
+                            Battery Options <span class="material-symbols-outlined transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Signal / Location Section -->
+<section class="bg-garage-charcoal py-24 text-white overflow-hidden relative" id="contact">
+<div class="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none">
+<span class="text-[300px] font-extrabold leading-none text-stroke absolute -right-20 top-1/2 -translate-y-1/2">MJB</span>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="reveal">
+<h2 class="font-display-lg text-display-lg mb-8">Visit Our <span class="text-primary">Daventry</span> Workshop</h2>
+<div class="space-y-8">
+<div class="flex gap-6 group">
+<div class="shrink-0 w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<div>
+<h4 class="font-headline-md text-xl mb-1">Our Location</h4>
+<p class="text-machine-silver font-body-md">Royal Oak Way North, Royal Oak Industrial Estate,<br/>Daventry, NN11 8PQ</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="shrink-0 w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-primary">schedule</span>
+</div>
+<div>
+<h4 class="font-headline-md text-xl mb-1">Opening Hours</h4>
+<p class="text-machine-silver font-body-md">Monday - Friday: 08:30 - 17:30<br/>Saturday: By Appointment</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="shrink-0 w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<div>
+<h4 class="font-headline-md text-xl mb-1">Expert Technicians</h4>
+<p class="text-machine-silver font-body-md">DVSA Approved testing station with highly qualified, time-served mechanical experts.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative reveal">
+<div class="aspect-square bg-machine-silver/10 rounded-2xl p-4 backdrop-blur-sm border border-white/10 overflow-hidden">
+<div class="w-full h-full rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+<img alt="Map location for MJB Services in Daventry" class="w-full h-full object-cover" data-location="Daventry" src="assets/home-map.png"/>
+</div>
+</div>
+<!-- Booking Bar / Floating CTA -->
+<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[90%] bg-primary p-6 rounded-xl shadow-2xl flex items-center justify-between gap-4 btn-shimmer">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-white/20 rounded-lg">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">phone_in_talk</span>
+</div>
+<div class="text-white">
+<p class="text-xs font-label-bold uppercase opacity-80">Direct Line</p>
+<p class="text-xl font-bold">01327 301619</p>
+</div>
+</div>
+<button class="bg-white text-primary px-6 py-3 rounded-lg font-label-bold hover:bg-machine-silver transition-colors" onclick="window.location.href='tel:01327301619'">
+                            Call to Book
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-garage-charcoal dark:bg-surface-container-lowest w-full mt-auto">
+<div class="max-w-container-max mx-auto px-margin-desktop py-16 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1 reveal">
+<span class="font-display-lg-mobile text-display-lg-mobile font-extrabold text-white">MJB Services</span>
+<p class="text-machine-silver font-body-md mt-6 opacity-70">
+                Trusted automotive expertise in the heart of Daventry since 2024. Quality you can drive on.
+            </p>
+</div>
+<div class="col-span-1 reveal" style="transition-delay: 100ms;">
+<h4 class="text-white font-label-bold uppercase mb-6 tracking-widest">Services</h4>
+<ul class="space-y-4">
+<li><a class="text-machine-silver hover:text-white transition-colors duration-200" href="mot.html">MOT Testing</a></li>
+<li><a class="text-machine-silver hover:text-white transition-colors duration-200" href="index.html#repairs">Vehicle Servicing</a></li>
+<li><a class="text-machine-silver hover:text-white transition-colors duration-200" href="index.html#repairs">Engine Repairs</a></li>
+<li><a class="text-machine-silver hover:text-white transition-colors duration-200" href="batteries.html">Battery Replacement</a></li>
+</ul>
+</div>
+<div class="col-span-1 reveal" style="transition-delay: 200ms;">
+<h4 class="text-white font-label-bold uppercase mb-6 tracking-widest">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-machine-silver hover:text-white transition-colors duration-200" href="index.html#contact">About Us</a></li>
+<li><a class="text-machine-silver hover:text-white transition-colors duration-200" href="index.html#contact">Privacy Policy</a></li>
+<li><a class="text-machine-silver hover:text-white transition-colors duration-200" href="index.html#contact">Terms of Service</a></li>
+<li><a class="text-machine-silver hover:text-white transition-colors duration-200" href="index.html#contact">Cookie Policy</a></li>
+</ul>
+</div>
+<div class="col-span-1 reveal" style="transition-delay: 300ms;">
+<h4 class="text-white font-label-bold uppercase mb-6 tracking-widest">Contact</h4>
+<div class="space-y-4 text-machine-silver">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sm mt-1">call</span>
+<span>01327 301619</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sm mt-1">location_on</span>
+<span>Royal Oak Industrial Estate, Daventry, NN11 8PQ</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-white/5 py-8 max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-machine-silver text-caption opacity-50">© 2024 MJB Services. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-machine-silver hover:text-white transition-colors duration-200" href="tel:01327301619"><span class="material-symbols-outlined">social_distance</span></a>
+<a class="text-machine-silver hover:text-white transition-colors duration-200" href="index.html#contact"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+</footer>
+<!-- Interactive Scripts -->
+<script>
+    // Intersection Observer for Entrance Animations
+    const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // No need to unobserve if we want them to re-animate or keep state
+            }
+        });
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, {
+        root: null,
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // Simple scroll behavior for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav state
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('nav-link-active', 'text-primary'));
+                this.classList.add('nav-link-active', 'text-primary');
+            }
+        });
+    });
+
+    // Handle Nav link highlighting on scroll
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('nav-link-active', 'text-primary');
+            link.classList.add('text-on-surface');
+            if (link.getAttribute('href').includes(current) && current !== '') {
+                link.classList.add('nav-link-active', 'text-primary');
+                link.classList.remove('text-on-surface');
+            } else if (current === '' && link.getAttribute('href') === 'index.html') {
+                link.classList.add('nav-link-active', 'text-primary');
+                link.classList.remove('text-on-surface');
+            }
+        });
+    });
+</script>
+</body></html>
